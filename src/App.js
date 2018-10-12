@@ -1,18 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './App.css';
+import Board from "./components/game-board.jsx";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { board: [1,2,3] };
+    this.state = { board: [[" ",""," "],
+                          [" "," "," "],
+                          [""," "," "]]};
   }
   render() {
     return (
       <div className="body">
-       <div>{this.state.board[0]}</div>
-       <div>{this.state.board[1]}</div>
-       <div>{this.state.board[2]}</div>
+       <Board board={this.state.board}/>
       </div>
     );
   }
