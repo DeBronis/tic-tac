@@ -10,24 +10,33 @@ class App extends React.Component {
                           [" "," "," "],
                           [""," "," "]],
                         toggle : true};
-    this.fill = this.fill.bind(this)
+    this.fill = this.fill.bind(this);
+    this.playAgain = this.playAgain.bind(this);
   }
 
   fill (event) {
     if (this.state.toggle){
-      event.target.innerHTML= "O"
+      event.target.innerHTML= "🐶"
     } else{
-      event.target.innerHTML= "X"
+      event.target.innerHTML= "🙀"
     }
     this.setState({
       toggle: !this.state.toggle
     })
     
   }
+  
+  playAgain(event) {
+    
+    this.setState({ board: [[" ",""," "],
+    [" "," "," "],
+    [""," "," "]],
+  toggle : true})
+  }
   render() {
     return (
       <div className="body">
-       <Board board={this.state.board} fill={this.fill}/>
+          <Board board={this.state.board} fill={this.fill}/>
       </div>
     );
   }
