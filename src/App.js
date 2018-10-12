@@ -8,12 +8,26 @@ class App extends React.Component {
     super(props);
     this.state = { board: [[" ",""," "],
                           [" "," "," "],
-                          [""," "," "]]};
+                          [""," "," "]],
+                        toggle : true};
+    this.fill = this.fill.bind(this)
+  }
+
+  fill (event) {
+    if (this.state.toggle){
+      event.target.innerHTML= "O"
+    } else{
+      event.target.innerHTML= "X"
+    }
+    this.setState({
+      toggle: !this.state.toggle
+    })
+    
   }
   render() {
     return (
       <div className="body">
-       <Board board={this.state.board}/>
+       <Board board={this.state.board} fill={this.fill}/>
       </div>
     );
   }
